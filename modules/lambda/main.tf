@@ -2,7 +2,7 @@ resource "aws_lambda_function" "Invoke_function" {
   function_name = var.function_name
   runtime       = "python3.8"
   handler       = "index.lambda_handler"
-  role          = aws_iam_role.lambda_role.arn
+  role          = var.lambda_role_arn
 
   #path to the lambda code package
   filename         = "${path.module}/${var.zip_file_name}"

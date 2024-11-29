@@ -8,7 +8,7 @@ variable "zip_file_name" {
   type        = string
   default     = "lambda_function.zip"
 }
-# variable "lambda_role_arn" {
-#   description = "The ARN of the IAM role for lambda"
-#   type        = string
-# }
+variable "lambda_role_arn" {
+  description = "The ARN of the IAM role for lambda"
+  type        = string
+}
