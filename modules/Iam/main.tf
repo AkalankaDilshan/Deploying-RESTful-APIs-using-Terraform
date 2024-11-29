@@ -1,5 +1,5 @@
 data "aws_iam_policy_document" "polices" {
-  version = 2012 - 10 - 17
+  version = 2012-10-17
   statement {
     effect  = "Allow"
     actions = ["sts:AssumeRole"]
@@ -7,7 +7,6 @@ data "aws_iam_policy_document" "polices" {
       type        = "Service"
       identifiers = ["lambda.amazonaws.com"]
     }
-    resources = ["*"]
   }
 }
 
@@ -18,6 +17,6 @@ resource "aws_iam_role" "lambda_role" {
 
 resource "aws_iam_policy_attachment" "lambda_basic_execution" {
   name       = "lambda-function-policy"
-  roles      = [aws_iam_role.lambda_role]
+  roles      = [aws_iam_role.lambda_role.name]
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
