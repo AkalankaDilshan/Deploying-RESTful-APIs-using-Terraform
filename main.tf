@@ -3,6 +3,13 @@ provider "aws" {
 }
 
 module "lambda_function" {
-  source        = "./modules/lambda"
-  function_name = "StudentDB_Backend"
+  source          = "./modules/lambda"
+  function_name   = "StudentDB_Backend"
+  lambda_role_arn = module.Iam.lambda_role.function_role_arn
+}
+
+
+module "Iam_role" {
+  source    = "./modules/Iam"
+  role_name = "lambdaFunctionRole"
 }
