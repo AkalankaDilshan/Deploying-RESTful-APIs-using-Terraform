@@ -1,5 +1,5 @@
 data "aws_iam_policy_document" "polices" {
-  version = 2008 - 10 - 17
+  version = "2012-10-17"
   statement {
     effect  = "Allow"
     actions = ["sts:AssumeRole"]
