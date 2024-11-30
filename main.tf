@@ -5,7 +5,7 @@ provider "aws" {
 module "lambda_function" {
   source          = "./modules/lambda"
   function_name   = "StudentDB_Backend"
-  lambda_role_arn = module.Iam.function_role_arn
+  lambda_role_arn = modules.Iam.function_role_arn
 }
 
 
