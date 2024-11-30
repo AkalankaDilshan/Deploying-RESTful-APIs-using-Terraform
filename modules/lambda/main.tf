@@ -1,7 +1,7 @@
 resource "aws_lambda_function" "Invoke_function" {
   function_name = var.function_name
   runtime       = "python3.8"
-  handler       = "index.lambda_handler"
+  handler       = "function.lambda_handler"
   role          = var.lambda_role_arn
 
   #path to the lambda code package
