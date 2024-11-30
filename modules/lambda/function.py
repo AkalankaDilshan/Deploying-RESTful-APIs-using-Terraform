@@ -70,5 +70,7 @@ def lambda_handler(event, context) :
      
      response = response_payload(err,response_body)
 
+     return response
+     
      
 
