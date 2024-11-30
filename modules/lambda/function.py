@@ -68,6 +68,7 @@ def lambda_handler(event, context) :
                     "Student": value
                }
      
+     
      response = response_payload(err,response_body)
 
      
