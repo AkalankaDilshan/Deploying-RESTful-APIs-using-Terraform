@@ -25,6 +25,6 @@ resource "aws_iam_role" "lambda_role" {
 
 resource "aws_iam_policy_attachment" "lambda_basic_execution" {
   name       = "${var.function_name}-policy"
-  roles      = [aws_iam_role.lambda_role]
+  roles      = [aws_iam_role.lambda_role.name]
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
