@@ -4,6 +4,8 @@ import logging
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
+
+
 def lambda_handler(event, context) :
      logger.debug(event)
      
@@ -36,6 +38,15 @@ def lambda_handler(event, context) :
           }
      ]
      
+     def response_payload(err, res=None):
+          return{
+               'statusCode' : '400' if err else '200',
+               'body': err if err else json.dumps(res),
+               'headers': {
+                    'Content-Type': 'application/json',
+               },
+          }
+     
      resource = event['resource']
      
      err = None
@@ -58,14 +69,6 @@ def lambda_handler(event, context) :
                }
      
      response = response_payload(err,response_body)
-     
-     def response_payload(err, res=None):
-          return{
-               'statusCode' : '400' if err else '200',
-               'body': err if err else json.dumps(res),
-               'headers': {
-                    'Content-Type': 'application/json',
-               },
-          }
+
      
 
