@@ -10,8 +10,10 @@ module "lambda_function" {
 
 
 module "Iam_role" {
-  source    = "./modules/Iam"
-  role_name = "lambdaFunctionRole"
+  source        = "./modules/Iam"
+  role_name     = "lambdaFunctionRole"
+  function_name = module.lambda_function.lambda_name
+  source_arn    = module.lambda_function.invoke_arn
 }
 
 module "API_gateway" {
