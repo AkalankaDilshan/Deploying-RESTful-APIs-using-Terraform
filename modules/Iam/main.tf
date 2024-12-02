@@ -1,8 +1,9 @@
 data "aws_iam_policy_document" "polices" {
   version = "2012-10-17"
   statement {
-    effect  = "Allow"
-    actions = ["sts:AssumeRole"]
+    effect    = "Allow"
+    actions   = ["sts:AssumeRole"]
+    resources = ["arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${var.role_name}"]
     principals {
       type        = "Service"
       identifiers = ["lambda.amazonaws.com"]
@@ -28,3 +29,5 @@ resource "aws_lambda_permission" "apigw_lambda" {
   principal     = "apigateway.amazonaws.com"
   source_arn    = var.source_arn
 }
+
+data "aws_caller_identity" "current" {}
