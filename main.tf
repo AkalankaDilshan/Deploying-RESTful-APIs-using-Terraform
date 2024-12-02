@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "eu-north-1"
+  region = var.region
 }
 
 module "lambda_function" {
@@ -19,4 +19,5 @@ module "Iam_role" {
 module "API_gateway" {
   source            = "./modules/api_gateway"
   lambda_invoke_arn = module.lambda_function.invoke_arn
+  region            = var.region
 }
