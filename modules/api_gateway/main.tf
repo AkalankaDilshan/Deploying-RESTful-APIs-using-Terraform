@@ -54,7 +54,7 @@ resource "aws_api_gateway_integration" "lambda_integration_studentID" {
   http_method             = aws_api_gateway_method.student_id_get.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = "${var.lambda_invoke_arn}/*/*/*"
+  uri                     = "arn:aws:apigateway:${var.region}:lambda:path/2015-03-31/functions/${var.lambda_invoke_arn}/invocations"
 }
 
 # Responses for /Students (200)
