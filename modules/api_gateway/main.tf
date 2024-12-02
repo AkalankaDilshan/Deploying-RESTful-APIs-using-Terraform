@@ -43,7 +43,7 @@ resource "aws_api_gateway_integration" "lambda_integration" {
   http_method             = aws_api_gateway_method.proxy.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = var.lambda_invoke_arn
+  uri                     = "${var.lambda_invoke_arn}/*/*/*"
 }
 
 # lambda integration for /Students/{id}
@@ -53,7 +53,7 @@ resource "aws_api_gateway_integration" "lambda_integration_studentID" {
   http_method             = aws_api_gateway_method.student_id_get.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = var.lambda_invoke_arn
+  uri                     = "${var.lambda_invoke_arn}/*/*/*"
 }
 
 # Responses for /Students (200)
