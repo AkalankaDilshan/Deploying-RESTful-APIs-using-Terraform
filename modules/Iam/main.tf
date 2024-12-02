@@ -3,7 +3,7 @@ data "aws_iam_policy_document" "polices" {
   statement {
     effect    = "Allow"
     actions   = ["sts:AssumeRole"]
-    resources = "*" #["arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${var.role_name}"]
+    resources = ["*"] #["arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${var.role_name}"]
     principals {
       type        = "Service"
       identifiers = ["lambda.amazonaws.com"]
