@@ -1,5 +1,5 @@
-output "api_url" {
-  value       = aws_api_gateway_stage.dev_stage.invoke_url
+output "execution_arn" {
+  value       = aws_api_gateway_rest_api.my_api.execution_arn
   description = "API Gateway base URL"
 }
 

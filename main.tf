@@ -13,7 +13,7 @@ module "Iam_role" {
   source        = "./modules/Iam"
   role_name     = "lambdaFunctionRole"
   function_name = module.lambda_function.lambda_name
-  source_arn    = module.API_gateway.api_url
+  source_arn    = module.API_gateway.execution_arn
 }
 
 module "API_gateway" {
