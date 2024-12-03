@@ -16,8 +16,8 @@ module "Iam_role" {
   source_arn    = module.lambda_function.invoke_arn
 }
 
-# module "API_gateway" {
-#   source            = "./modules/api_gateway"
-#   lambda_invoke_arn = module.lambda_function.invoke_arn
-#   region            = var.region
-# }
+module "API_gateway" {
+  source            = "./modules/api_gateway"
+  lambda_invoke_arn = module.lambda_function.invoke_arn
+  region            = var.region
+}
