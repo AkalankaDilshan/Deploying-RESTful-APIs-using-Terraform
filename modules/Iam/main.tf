@@ -27,7 +27,7 @@ resource "aws_lambda_permission" "apigw_lambda" {
   action        = "lambda:InvokeFunction"
   function_name = var.function_name
   principal     = "apigateway.amazonaws.com"
-  source_arn    = var.source_arn
+  source_arn    = "${var.source_arn}/*/*/*"
 }
 
 # data "aws_caller_identity" "current" {}
